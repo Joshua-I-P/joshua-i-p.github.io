@@ -8,7 +8,7 @@
       .box {
         width: 70px;
         height: 70px;
-        background-color: teal;
+        background-color: darkblue;
         font-size: 300%;
         text-align: center;
         user-select: none;
@@ -21,7 +21,9 @@
 
       .board {
         height: 100vh;
+        background-color: lightgray;
       }
+
     </style>
     <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
   </head>
@@ -69,7 +71,12 @@
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
-
+        var positionX = 0;
+        var points = 0;
+        var speed = 10
+        var positionY = 0;
+        var speedY = 10;
+        var boardHeight = jQuery(window).height();
 
 
 
@@ -79,12 +86,14 @@
          * Each time it is called, it should move the Box to a new location.
          * If the box drifts off the screen, turn it around!
          */
-        function update() {
+        function update() {moveBoxTo(positionX); positionX += speed; if (positionX > boardWidth) speed *= -1; else if (positionX < 0) speed *= -1; moveBoxTo(positionX, positionY); positionY += speedY 
+          if (positionY > boardHeight) speedY *= -1; else if (positionY < 0) speedY *= -1;
 
-        
-
-          
         }
+        function moveBoxTo(newPositionX, newPositionY) {
+        box.css("left", newPositionX);
+        box.css("top", newPositionY);
+      }
 
         /**
          * This Function will be called each time the box is clicked.
@@ -93,7 +102,7 @@
          * - increase the speed
          * - move the box to the left side of the screen.
          */
-        function handleBoxClick() {
+        function handleBoxClick() { positionX = positionX; changeBoxText(points); points++; speed = points * 3 + 10 ; speedY = points * 3 + 10
 
 
 
