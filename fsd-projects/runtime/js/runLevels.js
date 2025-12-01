@@ -14,7 +14,7 @@ var runLevels = function (window) {
     var levelData = window.opspark.levelData;
 
     // set this to true or false depending on if you want to see hitzones
-    game.setDebugMode(true);
+    game.setDebugMode(false);
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
@@ -59,7 +59,7 @@ var runLevels = function (window) {
   
    //Collectables
     function createReward(x,y) {
-      var collectable = game.createGameItem('collectable', 35);
+      var collectable = game.createGameItem('collectable', 10);
       var goldCoin = draw.circle(35, 'gold', 'black', 2);
       goldCoin.x = -1.5;
       goldCoin.y = -1.5;
@@ -96,12 +96,7 @@ var runLevels = function (window) {
         game.increaseScore(2000);
         startLevel();
       }
-      finishLine.onProjectileCollision = function(){
-        finishLine.fadeOut()
-        game.changeIntegrity(1000);
-        game.incraseScore(2000);
-        startLevel();
-      }
+   
       game.addGameItem(finishLine)
      }
     
