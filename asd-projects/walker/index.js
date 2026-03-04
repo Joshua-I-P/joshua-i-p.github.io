@@ -187,7 +187,7 @@ function repositionGameItem(){
         walkerP2.baseSpeed = 7
          $('#walkerP2').css('border', '5px solid yellow') 
       } else{
-        walker.baseSpeed = 5
+        walkerP2.baseSpeed = 5
         $('#walkerP2').css('border', '1px solid white');
       }
     }
