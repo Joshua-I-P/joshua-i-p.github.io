@@ -1,0 +1,12 @@
+#die {
+  height: 100px;
+  width: 100px;
+  background-color: gray; /* Feel free to customize */
+  position: relative;
+  top: 300;
+  left: 500;
+}
+
+body{
+    background-color: black
+}
