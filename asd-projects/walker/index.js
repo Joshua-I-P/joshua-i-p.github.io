@@ -171,7 +171,8 @@ function repositionGameItem(){
   }
     function detectTag(){
       
-      if(walker.x < walkerP2.x + walker.size && walker.x + walker.size > walkerP2.x && walker.y + walker.size > walkerP2.y && walkerP2.y + walkerP2.size > walker.y){
+      if(walker.x < walkerP2.x + walker.si0
+        .$.                                                                 ze && walker.x + walker.size > walkerP2.x && walker.y + walker.size > walkerP2.y && walkerP2.y + walkerP2.size > walker.y){
         walker.isTagged = !walker.isTagged;
         walkerP2.isTagged = !walkerP2.isTagged;
       }

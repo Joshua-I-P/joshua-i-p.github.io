@@ -14,7 +14,17 @@ The CSS ids you will work with are:
 ///////////////////////////////////////////////////////////////////////
 
 // TODO 2: Implement bubbleSort
-
+async function bubbleSort(arr){
+  for (var i = 0; i < arr.length; i++){
+  for (var j = arr.length - 1; j ===  i + 1; j--){
+     if (arr[j].value < arr[i].value){
+        sawp(arr, j, i)
+        updateCounter(bubbleCounter);
+        await sleep();
+     }
+  }
+ }
+}
 
 // TODO 3: Implement quickSort
 
@@ -23,7 +33,12 @@ The CSS ids you will work with are:
 
 
 // TODO 1: Implement swap
-
+function swap(arr, i, j){
+    let swappedElement = arr[i];
+    arr[i] = arr[j];
+    arr[j] = swappedElement;
+    drawSwap(arr, i, j)
+}
 
 ///////////////////////////////////////////////////////////////////////
 /////////////////////// YOUR WORK GOES ABOVE HERE /////////////////////
