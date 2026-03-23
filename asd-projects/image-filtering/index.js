@@ -14,7 +14,7 @@ $(document).ready(function () {
 function resetAndRender() {
   reset();
   render($("#display"), image);
-}
+}0
 
 // this function applies the filters to the image and is where you should call
 // all of your apply functions

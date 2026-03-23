@@ -15,11 +15,11 @@ The CSS ids you will work with are:
 
 // TODO 2: Implement bubbleSort
 async function bubbleSort(arr){
-  for (var i = 0; i < arr.length; i++){
-  for (var j = arr.length - 1; j ===  i + 1; j--){
+  for (var i = 0; i <= arr.length - 1; i++){
+  for (var j = arr.length - 1; j >= i + 1; j--){
      if (arr[j].value < arr[i].value){
-        sawp(arr, j, i)
-        updateCounter(bubbleCounter);
+        swap(arr, j, i)
+        updateCounter(bubbleCounter); 
         await sleep();
      }
   }
@@ -27,14 +27,41 @@ async function bubbleSort(arr){
 }
 
 // TODO 3: Implement quickSort
-
+async function quickSort(arr,left,right){
+ let index = await partition(arr,left,right)
+  if (left >= right){
+     return;
+  }
+  if (left < index - 1){
+     await quickSort(arr,left,index - 1)
+  }
+  if (index < right){
+    await quickSort(arr, index, right)
+  }
+    
+}
 
 // TODOs 4 & 5: Implement partition
-
+async function partition(arr,left,right){
+    let pivot = arr[Math.floor((right + left) / 2)].value;
+    while (left <= right){
+     while(arr[left].value < pivot){left++}
+     while(arr[right].value > pivot){right--}
+     if (left <= right){
+        swap(arr, left, right)
+        updateCounter(quickCounter)
+        await sleep()
+        left++;
+        right--;
+     }
+    }
+    return left;
+}
 
 // TODO 1: Implement swap
 function swap(arr, i, j){
     let swappedElement = arr[i];
+ 
     arr[i] = arr[j];
     arr[j] = swappedElement;
     drawSwap(arr, i, j)
